@@ -1,0 +1,81 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007f14adee18d5, pid=5738, tid=7564
+#
+# JRE version: OpenJDK Runtime Environment (15.0.2+7) (build 15.0.2+7-27)
+# Java VM: OpenJDK 64-Bit Server VM (15.0.2+7-27, mixed mode, tiered, compressed oops, g1 gc, linux-amd64)
+# Problematic frame:
+# J 1174 c1 java.nio.DirectIntBufferU.get(I)I java.base@15.0.2 (33 bytes) @ 0x00007f14adee18d5 [0x00007f14adee1840+0x0000000000000095]
+#
+# No core dump will be written. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   https://bugreport.java.com/bugreport/crash.jsp
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -XX:+ShowCodeDetailsInExceptionMessages -agentlib:jdwp=transport=dt_socket,suspend=y,address=localhost:39125 -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=46683 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=localhost -Dspring.jmx.enabled=true -Dspring.application.admin.enabled=true -Djava.security.egd=file:/dev/./urandom -XX:TieredStopAtLevel=1 -Dspring.boot.project.name=dg-pessoas -javaagent:/home/macedo/sts-4.10.0.RELEASE/configuration/org.eclipse.osgi/248/0/.cp/lib/javaagent-shaded.jar -Dfile.encoding=UTF-8 br.com.digital.dppessoas.DgPessoasApplication --spring.output.ansi.enabled=always
+
+Host: Intel(R) Core(TM) i5-8265U CPU @ 1.60GHz, 8 cores, 7G, Zorin OS 15.3
+Time: Mon May 10 19:46:06 2021 -03 elapsed time: 1708.882121 seconds (0d 0h 28m 28s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007f1454002340):  JavaThread "RMI TCP Connection(39)-127.0.0.1" daemon [_thread_in_Java, id=7564, stack(0x00007f14a85f4000,0x00007f14a86f5000)]
+
+Stack: [0x00007f14a85f4000,0x00007f14a86f5000],  sp=0x00007f14a86f0340,  free space=1008k
+Native frames: (J=compiled Java code, A=aot compiled Java code, j=interpreted, Vv=VM code, C=native code)
+J 1174 c1 java.nio.DirectIntBufferU.get(I)I java.base@15.0.2 (33 bytes) @ 0x00007f14adee18d5 [0x00007f14adee1840+0x0000000000000095]
+J 1219 c1 jdk.internal.jimage.BasicImageReader.findLocation(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/jimage/ImageLocation; java.base@15.0.2 (115 bytes) @ 0x00007f14adefd284 [0x00007f14adefd140+0x0000000000000144]
+J 1222 c1 jdk.internal.module.SystemModuleFinders$SystemModuleReader.findImageLocation(Ljava/lang/String;)Ljdk/internal/jimage/ImageLocation; java.base@15.0.2 (42 bytes) @ 0x00007f14adefec14 [0x00007f14adefeb80+0x0000000000000094]
+J 1237 c1 jdk.internal.module.SystemModuleFinders$SystemModuleReader.find(Ljava/lang/String;)Ljava/util/Optional; java.base@15.0.2 (54 bytes) @ 0x00007f14adeff7b4 [0x00007f14adeff760+0x0000000000000054]
+J 2195 c1 jdk.internal.loader.BuiltinClassLoader$2.run()Ljava/util/List; java.base@15.0.2 (114 bytes) @ 0x00007f14ae0864b4 [0x00007f14ae0863a0+0x0000000000000114]
+J 2591 c1 jdk.internal.loader.BuiltinClassLoader.findMiscResource(Ljava/lang/String;)Ljava/util/List; java.base@15.0.2 (122 bytes) @ 0x00007f14ae154c74 [0x00007f14ae154880+0x00000000000003f4]
+J 2823 c1 jdk.internal.loader.BuiltinClassLoader.findResource(Ljava/lang/String;)Ljava/net/URL; java.base@15.0.2 (154 bytes) @ 0x00007f14ae1b2da4 [0x00007f14ae1b2be0+0x00000000000001c4]
+J 4341 c1 java.lang.ClassLoader.getResource(Ljava/lang/String;)Ljava/net/URL; java.base@15.0.2 (41 bytes) @ 0x00007f14ae463fec [0x00007f14ae463f60+0x000000000000008c]
+J 4341 c1 java.lang.ClassLoader.getResource(Ljava/lang/String;)Ljava/net/URL; java.base@15.0.2 (41 bytes) @ 0x00007f14ae463fcc [0x00007f14ae463f60+0x000000000000006c]
+j  java.lang.ClassLoader.getResourceAsStream(Ljava/lang/String;)Ljava/io/InputStream;+7 java.base@15.0.2
+j  org.apache.catalina.loader.WebappClassLoaderBase.getResourceAsStream(Ljava/lang/String;)Ljava/io/InputStream;+122
+j  org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc()V+12
+j  org.apache.catalina.loader.WebappClassLoaderBase.clearReferences()V+67
+j  org.apache.catalina.loader.WebappClassLoaderBase.stop()V+8
+j  org.apache.catalina.loader.WebappLoader.stopInternal()V+63
+j  org.apache.catalina.util.LifecycleBase.stop()V+214
+j  org.apache.catalina.core.StandardContext.stopInternal()V+363
+j  org.apache.catalina.util.LifecycleBase.stop()V+214
+j  org.apache.catalina.core.ContainerBase$StopChild.call()Ljava/lang/Void;+19
+j  org.apache.catalina.core.ContainerBase$StopChild.call()Ljava/lang/Object;+1
+J 8787 c1 java.util.concurrent.FutureTask.run()V java.base@15.0.2 (123 bytes) @ 0x00007f14aec163f4 [0x00007f14aec16280+0x0000000000000174]
+j  org.apache.tomcat.util.threads.InlineExecutorService.execute(Ljava/lang/Runnable;)V+38
+j  java.util.concurrent.AbstractExecutorService.submit(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;+20 java.base@15.0.2
+j  org.apache.catalina.core.ContainerBase.stopInternal()V+123
+j  org.apache.catalina.util.LifecycleBase.stop()V+214
+j  org.apache.catalina.core.ContainerBase$StopChild.call()Ljava/lang/Void;+19
+j  org.apache.catalina.core.ContainerBase$StopChild.call()Ljava/lang/Object;+1
+J 8787 c1 java.util.concurrent.FutureTask.run()V java.base@15.0.2 (123 bytes) @ 0x00007f14aec163f4 [0x00007f14aec16280+0x0000000000000174]
+j  org.apache.tomcat.util.threads.InlineExecutorService.execute(Ljava/lang/Runnable;)V+38
+j  java.util.concurrent.AbstractExecutorService.submit(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;+20 java.base@15.0.2
+j  org.apache.catalina.core.ContainerBase.stopInternal()V+123
+j  org.apache.catalina.util.LifecycleBase.stop()V+214
+j  org.apache.catalina.core.StandardService.stopInternal()V+217
+j  org.apache.catalina.util.LifecycleBase.stop()V+214
+j  org.apache.catalina.core.StandardServer.stopInternal()V+82
+j  org.apache.catalina.util.LifecycleBase.stop()V+214
+j  org.apache.catalina.startup.Tomcat.stop()V+9
+j  org.springframework.boot.web.embedded.tomcat.TomcatWebServer.stopTomcat()V+29
+j  org.springframework.boot.web.embedded.tomcat.TomcatWebServer.stop()V+32
+j  org.springframework.boot.web.servlet.context.WebServerStartStopLifecycle.stop()V+4
+j  org.springframework.context.SmartLifecycle.stop(Ljava/lang/Runnable;)V+1
+j  org.springframework.context.support.DefaultLifecycleProcessor.doStop(Ljava/util/Map;Ljava/lang/String;Ljava/util/concurrent/CountDownLatch;Ljava/util/Set;)V+174
+j  org.springframework.context.support.DefaultLifecycleProcessor.access$300(Lorg/springframework/context/support/DefaultLifecycleProcessor;Ljava/util/Map;Ljava/lang/String;Ljava/util/concurrent/CountDownLatch;Ljava/util/Set;)V+6
+j  org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.stop()V+176
+j  org.springframework.context.support.DefaultLifecycleProcessor.stopBeans()V+100
+j  org.springframework.context.support.DefaultLifecycleProcessor.onClose()V+1
+j  org.springframework.context.support.AbstractApplicationContext.doClose()V+111
+j  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose()V+15
+j  org.springframework.context.support.AbstractApplicationContext.close()V+8
+j  org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown()V+17
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x7741b9]
